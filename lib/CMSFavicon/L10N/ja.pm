@@ -9,7 +9,7 @@ use vars qw( %Lexicon );
 
 %Lexicon = (
   '_PLUGIN_NAME' => 'CMSFavicon',
-  '_PLUGIN_DESCRIPTION' => '管理画面にfaviconを追加します。アイコンは自分で用意してくださいです。',
+  '_PLUGIN_DESCRIPTION' => '管理画面のfaviconを設定します。',
   '_PLUGIN_AUTHOR' => '澤田 哲',
   'favicon URL' => 'faviconのURL',
   'enter URL address of your shortcut icon.' => 'ショートカットアイコンのURLアドレスを指定してください。',

@@ -2,7 +2,6 @@ package MT::Plugin::CMSFavicon;
 
 use strict;
 use MT;
-use MT::Template::Context;
 use vars qw($VERSION);
 $VERSION = '0.1';
 
@@ -28,16 +27,14 @@ MT->add_callback('MT::App::CMS::AppTemplateSource.header', 9, $plugin, \&_add_fa
 
 sub _add_favicon {
   my ($eh, $app, $tmpl_ref) = @_;
-  my $plugin_param;
-  $plugin_param = $plugin->get_config_hash();
-  
+  my $plugin_param = $plugin->get_config_hash();
+  my $favicon_url;
+  return unless ($favicon_url = $plugin_param->{'cmsfavicon_path_to_icon'});
   my $old = <<'HTML';
 <link rel="stylesheet" href="<TMPL_VAR NAME=STATIC_URI>styles.css?v=<TMPL_VAR NAME=MT_VERSION ESCAPE=URL>" type="text/css" />
 HTML
 
-  my $new = '
-<link rel="shortcut icon" href="' . $plugin_param->{'cmsfavicon_path_to_icon'};
-
+  my $new = '<link rel="shortcut icon" href="' . $favicon_url;
   $new .= <<'HTML';
 ">
 <link rel="stylesheet" href="<TMPL_VAR NAME=STATIC_URI>styles.css?v=<TMPL_VAR NAME=MT_VERSION ESCAPE=URL>" type="text/css" />
