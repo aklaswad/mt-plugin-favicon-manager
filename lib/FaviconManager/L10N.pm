@@ -1,4 +1,4 @@
-package CMSFavicon::L10N;
+package FaviconManager::L10N;
 
 use strict;
 use base 'MT::Plugin::L10N';

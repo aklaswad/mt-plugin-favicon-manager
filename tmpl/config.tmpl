@@ -1,9 +1,25 @@
 <div class="setting">
     <div class="label">
-        <label for="cmsfavicon_path"><MT_TRANS phrase="favicon URL"></label>
+        <label for="cmsfavicon_path"><MT_TRANS phrase="CMS favicon URL"></label>
     </div>
     <div class="field">
         <input type="text" name="cmsfavicon_path_to_icon" id="cmsfavicon_path_to_icon" value="<TMPL_VAR NAME=CMSFAVICON_PATH_TO_ICON ESCAPE=HTML>" />
-        <p><MT_TRANS phrase="enter URL address of your shortcut icon.">
+        <p><MT_TRANS phrase="enter URL address of your CMS shortcut icon."></p>
+    </div>
+
+    <div class="label">
+        <label for="favicon_path_to_icon"><MT_TRANS phrase="default favicon URL"></label>
+    </div>
+    <div class="field">
+        <input type="text" name="favicon_path_to_icon" id="favicon_path_to_icon" value="<TMPL_VAR NAME=FAVICON_PATH_TO_ICON ESCAPE=HTML>" />
+        <p><MT_TRANS phrase="enter URL address of your blogs default shortcut icon."></p>
+    </div> 
+    
+    <div class="label">
+        <label for="add_favicon_to_new_blog"><MT_TRANS phrase="add favicon to new blog"></label>
+    </div>
+    <div class="field">
+        <input value="1" type="checkbox" name="add_favicon_to_new_blog" id="add_favicon_to_new_blog" <TMPL_IF NAME=ADD_FAVICON_TO_NEW_BLOG>checked="checked"</TMPL_IF> />
+        <p><MT_TRANS phrase="Insert favicon link tag when you create new blog."></p>
     </div> 
 </div>
