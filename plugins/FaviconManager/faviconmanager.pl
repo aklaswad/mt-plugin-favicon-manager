@@ -42,9 +42,10 @@ sub get_favicon_url {
     }
 
     if ($setting_str =~ /^asset:/) {
-        my $asset_id = $setting_str =~ s/asset://;
+        $setting_str =~ s/asset://;
+        my $asset_id = $setting_str;
         require MT::Asset;
-        my $asset = MT::Asset->load({id => $asset_id});
+        my $asset = MT::Asset->load($asset_id);
         die "Favicon Manager failed: can't load asset object." unless $asset;
         $favicon_url = $asset->url;
     }
