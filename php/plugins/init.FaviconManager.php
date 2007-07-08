@@ -7,7 +7,7 @@ $smarty->register_outputfilter("faviconmanager_add_favicon");
 function faviconmanager_add_favicon($tmpl, &$ctx){
     $blogid = $ctx->stash('blog_id');
     $scope = 'blog:' . $blogid;
-    $config = $ctx->mt->db->fetch_plugin_config('Favicon Manager', $scope);
+    $config = $ctx->mt->db->fetch_plugin_config('FaviconManager', $scope);
 
     if ($config) {
         $setting_str = $config['faviconmanager_blog_icon'];

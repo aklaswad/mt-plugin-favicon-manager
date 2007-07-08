@@ -8,7 +8,7 @@ $VERSION = '0.2';
 @MT::Plugin::FaviconManager::ISA = qw(MT::Plugin);
 
 my $plugin = new MT::Plugin::FaviconManager({
-    name => 'Favicon Manager',
+    name => 'FaviconManager',
     version => $VERSION,
     description => '<MT_TRANS phrase=\'_PLUGIN_DESCRIPTION\'>',
     author_name => '<MT_TRANS phrase=\'_PLUGIN_AUTHOR\'>',
