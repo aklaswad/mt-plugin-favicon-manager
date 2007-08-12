@@ -14,12 +14,12 @@ my $plugin = new MT::Plugin::FaviconManager({
     author_name => '<MT_TRANS phrase=\'_PLUGIN_AUTHOR\'>',
     author_link => 'http://blog.aklaswad.com/',
     settings => new MT::PluginSettings([
-      ['faviconmanager_cms_icon', { Scope => 'system'}],
-      ['faviconmanager_blog_icon'],
+        ['faviconmanager_cms_icon', { Scope => 'system'}],
+        ['faviconmanager_blog_icon'],
     ]),
     system_config_template => 'config.tmpl',
     blog_config_template => 'blogconfig.tmpl',
-    doc_link => 'http://blog.aklaswad.com/',
+    doc_link => 'http://blog.aklaswad.com/mtplugins/faviconmanager.html',
     l10n_class => 'FaviconManager::L10N',
 });
 

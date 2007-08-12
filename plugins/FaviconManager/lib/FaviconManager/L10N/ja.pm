@@ -10,15 +10,13 @@ use vars qw( %Lexicon );
 
 %Lexicon = (
   '_PLUGIN_NAME' => 'FaviconManager',
-  '_PLUGIN_DESCRIPTION' => '管理画面のfaviconを設定します。',
-  '_PLUGIN_AUTHOR' => '澤田 哲',
+  '_PLUGIN_DESCRIPTION' => '管理画面と各ブログにfaviconを設定するプラグインです。',
+  '_PLUGIN_AUTHOR' => 'aklaswad',
   'CMS favicon URL' => '管理画面のfaviconのURL',
   'default favicon URL' => 'デフォルトのfaviconのURL',
   'enter URL address of your CMS shortcut icon.' => '管理画面で使用するショートカットアイコンのURLアドレスを指定してください。',
   'enter URL address of your blogs default shortcut icon.' => '各ブログのデフォルトのショートカットアイコンのURLアドレスを指定してください。',
     'enter URL address of this blog shortcut icon.' => 'このブログのショートカットアイコンのURLアドレスを指定してください。',
-  'add favicon to new blog' => '新規ブログにfaviconを追加',
-  'Insert favicon link tag when you create new blog.' => 'ブログの新規作成時にfaviconを追加',
   'Add favicon link to templates' => 'テンプレートにfaviconを追加',
   'Favicon link added at [_1].' => 'テンプレート [_1] にfaviconのリンクを追加しました',
 
