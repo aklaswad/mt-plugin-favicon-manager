@@ -8,6 +8,19 @@ function faviconmanager_add_favicon($tmpl, &$ctx){
     $blogid = $ctx->stash('blog_id');
     $scope = 'blog:' . $blogid;
     $config = $ctx->mt->db->fetch_plugin_config('FaviconManager', $scope);
+
+    $request = $ctx->mt->request;
+    if (preg_match('!/$!', $request)) {
+        $file_ext = 'html';
+    }
+    else {
+        $file_ext = preg_replace('!.*\.(.*)$!', '$1', $request);
+    }
+
+    if (!preg_match('!html?!', $file_ext)) {
+        return $tmpl;
+    }
+
     if ($config) {
         $setting_str = $config['faviconmanager_blog_icon'];
         $favicon_url = '';
