@@ -3,24 +3,24 @@ package MT::Plugin::FaviconManager;
 use strict;
 use MT;
 use vars qw($VERSION);
-$VERSION = '0.2';
+$VERSION = '2.0';
 
 @MT::Plugin::FaviconManager::ISA = qw(MT::Plugin);
 
 my $plugin = new MT::Plugin::FaviconManager({
-    name => 'FaviconManager',
-    version => $VERSION,
-    description => '<MT_TRANS phrase=\'_PLUGIN_DESCRIPTION\'>',
-    author_name => '<MT_TRANS phrase=\'_PLUGIN_AUTHOR\'>',
+    name        => 'FaviconManager',
+    version     => $VERSION,
+    description => '<__trans phrase=\'_PLUGIN_DESCRIPTION\'>',
+    author_name => '<__trans phrase=\'_PLUGIN_AUTHOR\'>',
     author_link => 'http://blog.aklaswad.com/',
-    settings => new MT::PluginSettings([
+    settings    => new MT::PluginSettings([
         ['faviconmanager_cms_icon', { Scope => 'system'}],
         ['faviconmanager_blog_icon'],
     ]),
+    doc_link    => 'http://blog.aklaswad.com/mtplugins/faviconmanager.html',
+    l10n_class  => 'FaviconManager::L10N',
     system_config_template => 'config.tmpl',
-    blog_config_template => 'blogconfig.tmpl',
-    doc_link => 'http://blog.aklaswad.com/mtplugins/faviconmanager.html',
-    l10n_class => 'FaviconManager::L10N',
+    blog_config_template   => 'blogconfig.tmpl',
 });
 
 MT->add_plugin($plugin);
@@ -69,16 +69,12 @@ EOT
 
 sub _add_blog_favicon {
     my ($eh, %param) = @_;
-
     my $file = $param{'File'};
-    return if $file !~ /html$/;
-
-    my $tmpl = $param{'Template'}
-        or return;
+    return if $file !~ /html?$/;
     my $blog = $param{'Blog'};
     my $favicon_url = $plugin->get_favicon_url($blog->id)
         or return;
-    my $add = "<link rel=\"shortcut icon\" href=\"$favicon_url\" />\n   <link";
+    my $add = "<link rel=\"shortcut icon\" href=\"$favicon_url\" />\n    <link";
     my $html = $param{'Content'};
     $$html =~ s{<link}{$add};
 }
