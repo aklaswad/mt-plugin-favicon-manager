@@ -25,6 +25,7 @@ my $plugin = new MT::Plugin::FaviconManager({
 
 MT->add_plugin($plugin);
 MT->add_callback('MT::App::CMS::template_source.header', 9, $plugin, \&_add_cmsfavicon);
+MT->add_callback('MT::App::Search::template_source.header', 9, $plugin, \&_add_cmsfavicon);
 MT->add_callback('build_page', 9, $plugin, \&_add_blog_favicon);
 
 sub get_favicon_url {
@@ -40,6 +41,7 @@ sub get_favicon_url {
         my $config =  $plugin->get_config_hash('system');
         $setting_str = $config->{faviconmanager_cms_icon};
     }
+    return unless $setting_str;
 
     if ($setting_str =~ /^asset:/) {
         $setting_str =~ s/asset://;
@@ -58,7 +60,8 @@ sub get_favicon_url {
 
 sub _add_cmsfavicon {
     my ($eh, $app, $tmpl_ref) = @_;
-    my $url = $plugin->get_favicon_url;
+    my $url = $plugin->get_favicon_url
+        or return;
     my $add = <<"EOT";
 <mt:setvarblock name="html_head" prepend="1">
     <link rel="shortcut icon" href="$url" />
