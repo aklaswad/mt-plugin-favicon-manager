@@ -3,7 +3,7 @@ package MT::Plugin::FaviconManager;
 use strict;
 use MT;
 use vars qw($VERSION);
-$VERSION = '2.0';
+$VERSION = '2.01';
 
 @MT::Plugin::FaviconManager::ISA = qw(MT::Plugin);
 

@@ -21,10 +21,8 @@ function faviconmanager_add_favicon($tmpl, &$ctx){
     $scope = 'blog:' . $blogid;
     $config = $ctx->mt->db->fetch_plugin_config('FaviconManager', $scope);
 
-    if ($config) {
-        $setting_str = $config['faviconmanager_blog_icon'];
+    if ($config && $setting_str = $config['faviconmanager_blog_icon']) {
         $favicon_url = '';
-
         if (preg_match('/^asset:/', $setting_str)) {
             $asset_id = preg_replace('/^asset:/', '', $setting_str, 1);
             $args['asset_id'] = $asset_id;
@@ -38,7 +36,7 @@ function faviconmanager_add_favicon($tmpl, &$ctx){
         }
 
         if ($favicon_url) {
-            $insert_text = '<link rel="shortcut icon" href="' . $favicon_url . '" />' . "\n   <link";
+            $insert_text = '<link rel="shortcut icon" href="' . $favicon_url . '" />' . "\n    <link";
             $tmpl = preg_replace('/<link/', $insert_text, $tmpl, 1);
         }
     }
